@@ -16,7 +16,11 @@
             {{ $viewData["product"]["name"] }}
           @endif
         </h5>
-        <p class="card-text">{{ $viewData["product"]["description"] }}</p>
+        <p class="card-text">{{ $viewData["product"]["price"] }}</p>
+        @foreach($viewData["product"]->comments as $comment)
+          - {{ $comment->getDescription() }}<br />
+        @endforeach
+
         <p class="card-text"><strong>Price:</strong> ${{ number_format($viewData["product"]["price"], 2) }}</p>
       </div>
     </div>
